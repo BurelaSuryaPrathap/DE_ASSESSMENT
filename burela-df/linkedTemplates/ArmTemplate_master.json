@@ -1,0 +1,314 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "burela-df"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"AzureBlobStorage3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage3'"
+		},
+		"AzureSqlDatabase1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
+		},
+		"AzureSqlDatabase2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
+		},
+		"AzureSqlDatabase3_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase3'"
+		},
+		"RestService1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'RestService1'"
+		},
+		"RestService2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'RestService2'"
+		},
+		"SNOWFLAKE_CONN_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SNOWFLAKE_CONN'"
+		},
+		"SNOWFLAKE_LINKED_SERVICE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SNOWFLAKE_LINKED_SERVICE'"
+		},
+		"SSMS_LOCAL_DB_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SSMS_LOCAL_DB'"
+		},
+		"SqlServer_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer'"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "suryasqlserver1.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "suryasql"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "suryaprathap"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "suryasqlserver1.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "suryasql"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "suryaprathap"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "suryasqlserver1.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "suryasql"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "suryaprathap"
+		},
+		"BLOB_LINKED_SERVICE_sasUri": {
+			"type": "secureString",
+			"metadata": "Secure string for 'sasUri' of 'BLOB_LINKED_SERVICE'"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://jsonplaceholder.typicode.com/posts"
+		},
+		"RestService1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "suryaprathap"
+		},
+		"RestService2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://jsonplaceholder.typicode.com/users"
+		},
+		"RestService2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "suryaprathap"
+		},
+		"SNOWFLAKE_CONN_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DE_MINI_PROJECT"
+		},
+		"SNOWFLAKE_CONN_properties_typeProperties_role": {
+			"type": "string",
+			"defaultValue": "ACCOUNTADMIN"
+		},
+		"SNOWFLAKE_LINKED_SERVICE_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DE_MINI_PROJECT"
+		},
+		"SNOWFLAKE_LINKED_SERVICE_properties_typeProperties_role": {
+			"type": "string",
+			"defaultValue": "ACCOUNTADMIN"
+		},
+		"SSMS_LOCAL_DB_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "JM-DKT-003"
+		},
+		"SSMS_LOCAL_DB_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DEPROJECT"
+		},
+		"SSMS_LOCAL_DB_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"SqlServer_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "JM-DKT-003"
+		},
+		"SqlServer_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DEPROJECT"
+		},
+		"SqlServer_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "burela-df_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"AzureBlobStorage3_connectionString": {
+						"value": "[parameters('AzureBlobStorage3_connectionString')]"
+					},
+					"AzureSqlDatabase1_password": {
+						"value": "[parameters('AzureSqlDatabase1_password')]"
+					},
+					"AzureSqlDatabase2_password": {
+						"value": "[parameters('AzureSqlDatabase2_password')]"
+					},
+					"AzureSqlDatabase3_password": {
+						"value": "[parameters('AzureSqlDatabase3_password')]"
+					},
+					"RestService1_password": {
+						"value": "[parameters('RestService1_password')]"
+					},
+					"RestService2_password": {
+						"value": "[parameters('RestService2_password')]"
+					},
+					"SNOWFLAKE_LINKED_SERVICE_password": {
+						"value": "[parameters('SNOWFLAKE_LINKED_SERVICE_password')]"
+					},
+					"SNOWFLAKE_CONN_password": {
+						"value": "[parameters('SNOWFLAKE_CONN_password')]"
+					},
+					"SSMS_LOCAL_DB_password": {
+						"value": "[parameters('SSMS_LOCAL_DB_password')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_userName')]"
+					},
+					"BLOB_LINKED_SERVICE_sasUri": {
+						"value": "[parameters('BLOB_LINKED_SERVICE_sasUri')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"RestService1_properties_typeProperties_userName": {
+						"value": "[parameters('RestService1_properties_typeProperties_userName')]"
+					},
+					"RestService2_properties_typeProperties_url": {
+						"value": "[parameters('RestService2_properties_typeProperties_url')]"
+					},
+					"RestService2_properties_typeProperties_userName": {
+						"value": "[parameters('RestService2_properties_typeProperties_userName')]"
+					},
+					"SNOWFLAKE_LINKED_SERVICE_properties_typeProperties_database": {
+						"value": "[parameters('SNOWFLAKE_LINKED_SERVICE_properties_typeProperties_database')]"
+					},
+					"SNOWFLAKE_LINKED_SERVICE_properties_typeProperties_role": {
+						"value": "[parameters('SNOWFLAKE_LINKED_SERVICE_properties_typeProperties_role')]"
+					},
+					"SNOWFLAKE_CONN_properties_typeProperties_database": {
+						"value": "[parameters('SNOWFLAKE_CONN_properties_typeProperties_database')]"
+					},
+					"SNOWFLAKE_CONN_properties_typeProperties_role": {
+						"value": "[parameters('SNOWFLAKE_CONN_properties_typeProperties_role')]"
+					},
+					"SSMS_LOCAL_DB_properties_typeProperties_server": {
+						"value": "[parameters('SSMS_LOCAL_DB_properties_typeProperties_server')]"
+					},
+					"SSMS_LOCAL_DB_properties_typeProperties_database": {
+						"value": "[parameters('SSMS_LOCAL_DB_properties_typeProperties_database')]"
+					},
+					"SSMS_LOCAL_DB_properties_typeProperties_userName": {
+						"value": "[parameters('SSMS_LOCAL_DB_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "burela-df_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"SqlServer_password": {
+						"value": "[parameters('SqlServer_password')]"
+					},
+					"SqlServer_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer_properties_typeProperties_server')]"
+					},
+					"SqlServer_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer_properties_typeProperties_database')]"
+					},
+					"SqlServer_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'burela-df_ArmTemplate_0')]"
+			]
+		}
+	]
+}

@@ -1,0 +1,117 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "burela-df"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage3_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase3_password": {
+			"value": ""
+		},
+		"RestService1_password": {
+			"value": ""
+		},
+		"RestService2_password": {
+			"value": ""
+		},
+		"SNOWFLAKE_CONN_password": {
+			"value": ""
+		},
+		"SNOWFLAKE_LINKED_SERVICE_password": {
+			"value": ""
+		},
+		"SSMS_LOCAL_DB_password": {
+			"value": ""
+		},
+		"SqlServer_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "suryasqlserver1.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "suryasql"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "suryaprathap"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "suryasqlserver1.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "suryasql"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "suryaprathap"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"value": "suryasqlserver1.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"value": "suryasql"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"value": "suryaprathap"
+		},
+		"BLOB_LINKED_SERVICE_sasUri": {
+			"value": ""
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://jsonplaceholder.typicode.com/posts"
+		},
+		"RestService1_properties_typeProperties_userName": {
+			"value": "suryaprathap"
+		},
+		"RestService2_properties_typeProperties_url": {
+			"value": "https://jsonplaceholder.typicode.com/users"
+		},
+		"RestService2_properties_typeProperties_userName": {
+			"value": "suryaprathap"
+		},
+		"SNOWFLAKE_CONN_properties_typeProperties_database": {
+			"value": "DE_MINI_PROJECT"
+		},
+		"SNOWFLAKE_CONN_properties_typeProperties_role": {
+			"value": "ACCOUNTADMIN"
+		},
+		"SNOWFLAKE_LINKED_SERVICE_properties_typeProperties_database": {
+			"value": "DE_MINI_PROJECT"
+		},
+		"SNOWFLAKE_LINKED_SERVICE_properties_typeProperties_role": {
+			"value": "ACCOUNTADMIN"
+		},
+		"SSMS_LOCAL_DB_properties_typeProperties_server": {
+			"value": "JM-DKT-003"
+		},
+		"SSMS_LOCAL_DB_properties_typeProperties_database": {
+			"value": "DEPROJECT"
+		},
+		"SSMS_LOCAL_DB_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"SqlServer_properties_typeProperties_server": {
+			"value": "JM-DKT-003"
+		},
+		"SqlServer_properties_typeProperties_database": {
+			"value": "DEPROJECT"
+		},
+		"SqlServer_properties_typeProperties_userName": {
+			"value": "sa"
+		}
+	}
+}
