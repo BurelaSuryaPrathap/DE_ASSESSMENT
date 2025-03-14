@@ -1,0 +1,25 @@
+{
+	"name": "SSMS_LOCAL_DATABASE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SSMS_LOCAL_DB",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_name": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "RAW",
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,21 @@
+{
+	"name": "SNOWFLAKE_CONN",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SnowflakeV2",
+		"typeProperties": {
+			"authenticationType": "Basic",
+			"accountIdentifier": "CDTPLUA-IY88330",
+			"user": "BURELASURYAPRATHAP",
+			"database": "DE_MINI_PROJECT",
+			"warehouse": "COMPUTE_WH",
+			"role": "ACCOUNTADMIN",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4MGZiZjJhYi04M2Y1LTQ3NTMtYTVjNS0wZTM4ODk2OGE3YjkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

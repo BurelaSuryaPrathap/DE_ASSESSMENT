@@ -1,0 +1,9 @@
+{
+	"name": "burela-df",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "90587131-2f5b-4626-8382-fa7e48f64a6a",
+		"tenantId": "2800c0a0-70e9-49be-8733-faeaa6aced99"
+	}
+}

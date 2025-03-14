@@ -1,0 +1,7 @@
+{
+	"name": "IntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "This is an Integration Runtime for SSMS"
+	}
+}
