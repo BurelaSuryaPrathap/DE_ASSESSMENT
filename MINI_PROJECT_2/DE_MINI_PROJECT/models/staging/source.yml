@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw_data
+    # The name of the database where the source data is stored
+    database: de_mini_project
+    schema: raw
+    tables:
+      - name: customers
+        description: "Contains customer information such as customer ID, name, and contact details."
+      - name: products
+        description: "Stores product details including product ID, name, category, and price."
+      - name: transactions
+        description: "Records transaction data such as transaction ID, customer ID, product ID, and transaction date."
